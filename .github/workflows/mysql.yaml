@@ -10,9 +10,9 @@ jobs:
         with:
           mysql-version: '8.0'
       - run: |
-          mysql -uroot -h127.0.0.1 -e 'SELECT version();';
-          mysql -uroot -h127.0.0.1 < .github/setups/schema.sql;
-          mysql -uroot -h127.0.0.1 -e 'use customer; Show tables;';
+          mysql -uroot -hlocalhost -e 'SELECT version();';
+          mysql -uroot -hlocalhost < .github/setups/schema.sql;
+          mysql -uroot -hlocalhost -e 'use customer; Show tables;';
 
 
 
