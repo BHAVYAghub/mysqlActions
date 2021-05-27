@@ -13,12 +13,12 @@ jobs:
           mysql-version: '8.0'
           auto-start: true
           user: sql
-          password: password
+          root-password: password
 
       - run: |
-          mysql -usql -p$password -h127.0.0.1 -e 'SELECT version();';
-          mysql -usql -p$password -h127.0.0.1 < .github/setups/schema.sql;
-          mysql -usql -p$password -h127.0.0.1 -e 'use customer; Show tables;';
+          mysql -uroot -p$password -h127.0.0.1 -e 'SELECT version();';
+          mysql -uroot -p$password -h127.0.0.1 < .github/setups/schema.sql;
+          mysql -uroot -p$password -h127.0.0.1 -e MYSQL_DATABASE=customer -e 'Show tables;';
 
 
 
