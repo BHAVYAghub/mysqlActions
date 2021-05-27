@@ -9,9 +9,10 @@ jobs:
       - uses: shogo82148/actions-setup-mysql@v1
         with:
           mysql-version: '8.0'
+          auto-start: true
+
       - run: |
           mysql -uroot -hlocalhost -e 'SELECT version();';
-          systemctl start mysql;
           mysql -uroot -hlocalhost < .github/setups/schema.sql;
           mysql -uroot -hlocalhost -e 'use customer; Show tables;';
 
