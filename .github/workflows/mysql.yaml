@@ -16,9 +16,9 @@ jobs:
           root-password: password
 
       - run: |
-          mysql -uroot -p$password -h127.0.0.1 -e 'SELECT version();';
-          mysql -uroot -p$password -h127.0.0.1 < .github/setups/schema.sql;
-          mysql -uroot -p$password -h127.0.0.1 -e MYSQL_DATABASE=customer -e 'Show tables;';
+          mysql -uroot -p$password -h'localhost' -e 'SELECT version();';
+          mysql -uroot -p$password -h'localhost' < .github/setups/schema.sql;
+          mysql -uroot -p$password -h127.0.0.1 -e 'Show tables;';
 
 
 
